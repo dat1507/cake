@@ -372,8 +372,8 @@ body::before {
 
 .burn-text.burning {
   display: block;
-  /* Total 30 seconds animation duration */
-  animation: burnReveal 30s ease-in-out forwards;
+  /* Total 5 seconds animation duration */
+  animation: burnReveal 5s ease-in-out forwards;
 }
 
 @keyframes burnReveal {
@@ -382,12 +382,12 @@ body::before {
     filter: blur(6px);
     transform: translate(-50%, -50%) scale(0.88);
   }
-  3% {
+  15% {
     opacity: 0.5;
     filter: blur(2px);
     transform: translate(-50%, -50%) scale(0.95);
   }
-  7% {
+  30% {
     opacity: 1;
     filter: blur(0);
     transform: translate(-50%, -50%) scale(1);
@@ -402,8 +402,8 @@ body::before {
        0 0 35px #FF5500,
        0 0 60px #FF0033;
   }
-  /* Sustained display (~24.5 seconds hold from 7% to 88%) */
-  45% {
+  /* Sustained display (~2.5s hold from 30% to 75%) */
+  50% {
     opacity: 1;
     color: #FFFFFF;
     text-shadow:
@@ -416,7 +416,7 @@ body::before {
        0 0 40px #FF6600,
        0 0 65px #E60033;
   }
-  88% {
+  75% {
     opacity: 1;
     color: #FFFCE8;
     filter: blur(0);
@@ -431,8 +431,8 @@ body::before {
        0 0 35px #FF5500,
        0 0 60px #FF0033;
   }
-  95% {
-    opacity: 0.5;
+  90% {
+    opacity: 0.4;
     filter: blur(2px);
     transform: translate(-50%, -50%) scale(0.96);
   }
