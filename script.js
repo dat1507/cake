@@ -115,12 +115,12 @@ document.addEventListener("DOMContentLoaded", function () {
     void burnText.offsetWidth;
     burnText.classList.add("burning");
 
-    // Hide after animation ends (3.8s defined in CSS)
+    // Hide after animation ends (30s defined in CSS)
     burnTextTimeout = setTimeout(() => {
       burnText.classList.remove("burning");
       burnText.classList.add("hidden");
       burnTextTimeout = null;
-    }, 3900);
+    }, 30200);
   }
 
   /* ================= Candle State Logic ================= */
