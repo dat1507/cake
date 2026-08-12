@@ -100,27 +100,30 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* ================= Burn Text Animation ================= */
-  function showBurnText() {
-    if (!burnText) return;
-
-    // Clear any previous timeout
+  function hideBurnText() {
     if (burnTextTimeout) {
       clearTimeout(burnTextTimeout);
       burnTextTimeout = null;
     }
+    if (burnText) {
+      burnText.classList.remove("burning");
+      burnText.classList.add("hidden");
+    }
+  }
 
-    // Reset then trigger
-    burnText.classList.remove("hidden", "burning");
+  function showBurnText() {
+    if (!burnText) return;
+
+    hideBurnText();
     // Force reflow to restart animation
     void burnText.offsetWidth;
+    burnText.classList.remove("hidden");
     burnText.classList.add("burning");
 
     // Hide after animation ends (30s defined in CSS)
     burnTextTimeout = setTimeout(() => {
-      burnText.classList.remove("burning");
-      burnText.classList.add("hidden");
-      burnTextTimeout = null;
-    }, 30200);
+      hideBurnText();
+    }, 30000);
   }
 
   /* ================= Candle State Logic ================= */
@@ -130,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function relightAllCandles() {
     candles.forEach((candle) => candle.classList.remove("out"));
+    hideBurnText();
   }
 
   if (relightBtn) {
@@ -199,6 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       } else {
         candle.classList.remove("out");
+        hideBurnText();
       }
     });
 
